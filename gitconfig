@@ -1,0 +1,10 @@
+[alias]
+	tree = log --oneline --decorate --source --graph --pretty=format:'%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s' --all
+
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Robert Hughes
+	email = roberts.ginger.email@gmail.com
+[core]
+	excludesfile = /Users/roberthughes/.global_ignore

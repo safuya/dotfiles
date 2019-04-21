@@ -1,0 +1,4 @@
+tags
+.python-version
+pipeline_build.yml
+*.swp
