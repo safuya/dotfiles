@@ -20,6 +20,7 @@ export EDITOR="vim"
 # Aliases
 alias gcd="git checkout dev"
 alias myip="curl ifconfig.io/ip"
+alias t="tmux"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
