@@ -15,19 +15,23 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mrk21/yaml-vim'
-Plug 'hashivim/vim-terraform'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe'
+Plug 'mileszs/ack.vim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
+
+let mapleader=","
 
 " Indentation
 syntax on
 filetype indent plugin on
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -35,7 +39,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <F8> :FZF<CR>
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+nnoremap <leader>f :FZF<CR>
+nnoremap <leader>v :vsp ~/.vimrc<CR>
+nnoremap <leader>z :vsp ~/.zshrc<CR>
+nnoremap <leader>a :Ag
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -46,6 +57,11 @@ set ruler
 set backspace=indent,eol,start
 set incsearch
 set splitbelow splitright
+
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
 
 set laststatus=2
 set noshowmode

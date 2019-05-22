@@ -2,25 +2,48 @@
 export PATH=$PATH:$HOME/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/roberthughes/.oh-my-zsh"
-DEFAULT_USER=roberthughes
+export ZSH="${HOME}/.oh-my-zsh"
+DEFAULT_USER=$(whoami)
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
-plugins=(git vi-mode z tmux)
+plugins=(git vi-mode z tmux kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
-. /usr/local/etc/profile.d/z.sh
-
 export EDITOR="vim"
 
+alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
+
 # Aliases
-alias gcd="git checkout dev"
 alias myip="curl ifconfig.io/ip"
 alias t="tmux"
+
+# K8S
+if [ "$(whoami)" = 'robert.hughes4' ]; then
+  ## Add extra namespaces for kubeconfig from git repo's
+  export KUBECONFIG=${HOME}/.kube/config:/Users/robert.hughes4/src/overview-docs/files/kubeconfig
+fi
+
+## Add kubectl context to the prompt. Might need to shorten this?
+zsh_prompt() {
+  KUBECTL_CONTEXT=$(kubectl config current-context | sed 's|arn:aws:eks:eu-west-1:165746544353:cluster/||')
+  KUBECTL_NAMESPACE=$(kubectl config get-contexts | grep "*" | awk '{print $NF}')
+  ZSH_KUBECTL_PROMPT="${KUBECTL_CONTEXT}/${KUBECTL_NAMESPACE}"
+  prompt_segment '' '' "${ZSH_KUBECTL_PROMPT} "
+}
+AGNOSTER_PROMPT_SEGMENTS=("zsh_prompt" "${AGNOSTER_PROMPT_SEGMENTS[@]}")
+
+## Aliases
+alias kc="kubectl config"
+alias kcv="kubectl config view"
+alias kcgc="kubectl config get-contexts"
+alias kcuc="kubectl config use-context"
+alias kd="kubectl describe"
+alias kg="kubectl get"
+alias kr="kubectl rollout"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
