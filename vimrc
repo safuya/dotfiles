@@ -23,6 +23,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mileszs/ack.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
