@@ -38,6 +38,7 @@ zsh_prompt() {
 AGNOSTER_PROMPT_SEGMENTS=("zsh_prompt" "${AGNOSTER_PROMPT_SEGMENTS[@]}")
 
 ## Aliases
+### Kubectl
 alias kc="kubectl config"
 alias kcv="kubectl config view"
 alias kcgc="kubectl config get-contexts"
@@ -47,6 +48,15 @@ alias kdrs="kubectl describe rs"
 alias kg="kubectl get"
 alias kgrs="kubectl get rs"
 alias kr="kubectl rollout"
+
+### Istioctl
+alias i="istioctl"
+alias ips="istioctl proxy-status"
+alias ipc="istioctl proxy-config"
+alias ipcc="istioctl proxy-config cluster"
+alias ipcb="istioctl proxy-config bootstrap"
+alias ipcr="istioctl proxy-config route"
+alias ipce="istioctl proxy-config endpoint"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
