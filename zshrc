@@ -51,12 +51,12 @@ alias kr="kubectl rollout"
 
 ### Istioctl
 alias i="istioctl"
-alias ips="istioctl proxy-status"
 alias ipc="istioctl proxy-config"
 alias ipcc="istioctl proxy-config cluster"
 alias ipcb="istioctl proxy-config bootstrap"
 alias ipcr="istioctl proxy-config route"
 alias ipce="istioctl proxy-config endpoint"
+alias ips="istioctl proxy-status"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -68,5 +68,10 @@ pyenv virtualenvwrapper_lazy
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=~/go
+export ISTIO=$GOPATH/src/istio.io
+export HUB=""
 
 autoload -U +X bashcompinit && bashcompinit
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
