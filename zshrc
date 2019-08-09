@@ -1,7 +1,5 @@
-# If you come from bash you might have to change your $PATH.
 export PATH=$PATH:$HOME/bin:$HOME/go/bin
 
-# Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 DEFAULT_USER=$(whoami)
 
@@ -38,7 +36,9 @@ zsh_prompt() {
 AGNOSTER_PROMPT_SEGMENTS=("zsh_prompt" "${AGNOSTER_PROMPT_SEGMENTS[@]}")
 
 ## Aliases
+
 ### Kubectl
+
 alias kc="kubectl config"
 alias kcv="kubectl config view"
 alias kcgc="kubectl config get-contexts"
@@ -46,10 +46,15 @@ alias kcuc="kubectl config use-context"
 alias kd="kubectl describe"
 alias kdrs="kubectl describe rs"
 alias kg="kubectl get"
+alias kge="kubectl get events"
+alias kgef="kubectl get events --sort-by='{lastTimestamp}' --field-selector type!=Normal"
+alias kgpb="kubectl get pods --all-namespaces | grep -v Running"
+alias kgpsum="kubectl get pods --all-namespaces --no-headers -o=custom-columns=Status:.status.phase | sort | uniq -c"
 alias kgrs="kubectl get rs"
 alias kr="kubectl rollout"
 
 ### Istioctl
+
 alias i="istioctl"
 alias ipc="istioctl proxy-config"
 alias ipcc="istioctl proxy-config cluster"
@@ -59,6 +64,7 @@ alias ipce="istioctl proxy-config endpoint"
 alias ips="istioctl proxy-status"
 
 # pyenv
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -73,5 +79,4 @@ export HUB=""
 
 autoload -U +X bashcompinit && bashcompinit
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
