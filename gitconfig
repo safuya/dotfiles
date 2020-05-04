@@ -1,9 +1,15 @@
 [alias]
 	tree = log --oneline --decorate --source --graph --pretty=format:'%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s' --all
 [user]
-	name = Robert Hughes
+	name = Rob Hughes
 	email = robert.hughes4@ocado.com
 [core]
-	excludesfile = ~/.global_ignore
+	excludesfile = /Users/robert.hughes4/.global_ignore
 [commit]
 	template = ~/.gitmessage
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

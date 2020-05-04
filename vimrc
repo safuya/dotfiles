@@ -20,11 +20,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'Valloric/YouCompleteMe'
+Plug 'ajh17/VimCompletesMe'
 Plug 'mileszs/ack.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'cespare/vim-toml'
+Plug 'othree/yajs.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -48,7 +51,7 @@ endif
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>v :vsp ~/.vimrc<CR>
 nnoremap <leader>z :vsp ~/.zshrc<CR>
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Ag<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 
