@@ -1,8 +1,8 @@
 [alias]
 	tree = log --oneline --decorate --source --graph --pretty=format:'%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s' --all
 [user]
-	name = Rob Hughes
-	email = robert.hughes4@ocado.com
+	name = Sophie Hughes
+	email = sophie.hughes@ocado.com
 [core]
 	excludesfile = /Users/robert.hughes4/.global_ignore
 [commit]

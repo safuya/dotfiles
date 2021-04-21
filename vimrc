@@ -28,6 +28,7 @@ Plug 'cespare/vim-toml'
 Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vimwiki/vimwiki'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
