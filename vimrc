@@ -20,7 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'ajh17/VimCompletesMe'
+Plug 'davidhalter/jedi-vim'
 Plug 'mileszs/ack.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
