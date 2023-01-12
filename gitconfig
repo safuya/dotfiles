@@ -1,18 +1,11 @@
 [alias]
 	tree = log --oneline --decorate --source --graph --pretty=format:'%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s' --all
+  shorthash = rev-parse --short @
 [user]
 	name = Sophie Hughes
-	email = sophie.hughes@ocado.com
+	email = sophie.hughes@mettle.co.uk
 [core]
 	excludesfile = /Users/sophie.hughes/.global_ignore
-[commit]
-	template = ~/.gitmessage
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [pull]
 	rebase = false
 [init]
