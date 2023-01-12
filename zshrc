@@ -46,9 +46,6 @@ fpath+=~/.zfunc
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 export GPG_TTY=$(tty)
-export TF_VAR_github_token=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
-export GITHUB_USERNAME=safuya
-export GITHUB_REPO_TOKEN=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
 eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
