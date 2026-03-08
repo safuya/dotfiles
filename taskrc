@@ -1,0 +1,51 @@
+# Taskwarrior configuration
+
+data.location=~/.task
+
+# Urgency weights - tuned for Eisenhower Matrix (urgent+important scoring)
+urgency.user.tag.urgent.coefficient=10.0
+urgency.user.tag.important.coefficient=8.0
+urgency.priority.coefficient=6.0
+
+# Default report
+default.command=next
+
+# Colours
+color=on
+
+# Eisenhower Matrix custom reports
+
+# Q1: Urgent + Important (Do First)
+report.q1.description=Eisenhower Q1: Urgent & Important (Do First)
+report.q1.columns=id,start.age,priority,project,tags,description,urgency
+report.q1.labels=ID,Active,P,Project,Tags,Description,Urg
+report.q1.filter=status:pending +urgent +important
+report.q1.sort=urgency-
+
+# Q2: Not Urgent + Important (Schedule)
+report.q2.description=Eisenhower Q2: Not Urgent but Important (Schedule)
+report.q2.columns=id,start.age,priority,project,tags,description,urgency
+report.q2.labels=ID,Active,P,Project,Tags,Description,Urg
+report.q2.filter=status:pending -urgent +important
+report.q2.sort=urgency-
+
+# Q3: Urgent + Not Important (Delegate)
+report.q3.description=Eisenhower Q3: Urgent but Not Important (Delegate)
+report.q3.columns=id,start.age,priority,project,tags,description,urgency
+report.q3.labels=ID,Active,P,Project,Tags,Description,Urg
+report.q3.filter=status:pending +urgent -important
+report.q3.sort=urgency-
+
+# Q4: Not Urgent + Not Important (Eliminate)
+report.q4.description=Eisenhower Q4: Not Urgent & Not Important (Eliminate)
+report.q4.columns=id,start.age,priority,project,tags,description,urgency
+report.q4.labels=ID,Active,P,Project,Tags,Description,Urg
+report.q4.filter=status:pending -urgent -important
+report.q4.sort=urgency-
+
+# Support week report: everything urgent or high priority
+report.support.description=Support week: urgent and high priority tasks
+report.support.columns=id,start.age,priority,project,tags,description,urgency
+report.support.labels=ID,Active,P,Project,Tags,Description,Urg
+report.support.filter=status:pending (priority:H or +urgent)
+report.support.sort=urgency-
