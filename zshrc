@@ -16,7 +16,7 @@ DEFAULT_USER=$(whoami)
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git poetry vi-mode z tmux kubectl)
+plugins=(git vi-mode z kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
