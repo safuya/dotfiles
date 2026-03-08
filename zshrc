@@ -5,9 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PYENV_ROOT="$HOME/.pyenv"
 
-export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$HOME/bin:$HOME/go/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/bin:$PATH
+export PATH=$HOME/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$HOME/go/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export ZSH="${HOME}/.oh-my-zsh"
@@ -27,14 +28,38 @@ alias d="dirs -v | head -10"
 
 # Aliases
 
-alias watch="watch "
-alias t="tmux"
+alias ag="rg"
 
+export KUBECONFIG="$HOME/.kube/config"
+
+alias gst="git status -u"
+
+## Kubernetes Aliases
 alias kg="kubectl get"
+alias kd="kubectl describe"
+alias ke="kubectl edit"
+alias kr="kubectl rollout"
+alias kgvs="kubectl get virtualservice"
+alias kdvs="kubectl describe virtualservice"
+alias kerec="kubectl patch --type=json -p '[{\"op\": \"add\", \"path\": \"/metadata/annotations/argocd.argoproj.io~1skip-reconcile\", \"value\": \"true\"}]' application"
+alias kdelrec="kubectl patch --type=json -p '[{\"op\": \"remove\", \"path\": \"/metadata/annotations/argocd.argoproj.io~1skip-reconcile\"}]' application"
+alias kdelcache="rm ~/.kube/cache/oidc-login/*"
+
+alias htsbx="helm template . --values env/sbx/values.yaml --values env/sbx/aws/values.yaml"
+
+alias vi="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export GOPATH=~/go
+export GOPATH=~/src
+export PATH=$PATH:$(go env GOPATH)/bin
 export HUB=""
+
+export SCW_ACCESS_KEY=$(security find-generic-password -a "$USER" -s "SCW_ACCESS_KEY" -w)
+export SCW_SECRET_KEY=$(security find-generic-password -a "$USER" -s "SCW_SECRET_KEY" -w)
+export SCW_DEFAULT_ORGANIZATION_ID=$(security find-generic-password -a "$USER" -s "SCW_DEFAULT_ORGANIZATION_ID" -w)
+export SCW_DEFAULT_PROJECT_ID=$(security find-generic-password -a "$USER" -s "SCW_DEFAULT_PROJECT_ID" -w)
+
+export HCLOUD_TOKEN=$(security find-generic-password -a "$USER" -s "HCLOUD_TOKEN" -w)
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit

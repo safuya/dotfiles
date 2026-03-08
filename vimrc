@@ -37,6 +37,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
+" Terraform
+Plug 'hashivim/vim-terraform'
+" Github actions
+Plug 'yasuhiroki/github-actions-yaml.vim'
+
 
 call plug#end()
 
@@ -148,8 +153,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
 endif
 
 nnoremap <leader>f :FZF<CR>
@@ -192,3 +197,5 @@ autocmd BufWritePre * %s/\s\+$//e
 
 set background=dark
 colorscheme enfocado
+
+let NERDTreeShowHidden=1

@@ -3,7 +3,7 @@
   shorthash = rev-parse --short @
 [user]
 	name = Sophie Hughes
-	email = sophie.hughes@mettle.co.uk
+	email = sophie.hughes@nwboxed.com
 [core]
 	excludesfile = /Users/sophie.hughes/.global_ignore
 [pull]
