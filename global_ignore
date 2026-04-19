@@ -1,3 +1,9 @@
 tags
 .python-version
 *.swp
+.specify
+.opencode
+specs
+AGENTS.md
+openspec
+tasks

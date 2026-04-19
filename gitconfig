@@ -5,7 +5,7 @@
 	name = Sophie Hughes
 	email = sophie.hughes@nwboxed.com
 [core]
-	excludesfile = /Users/sophie.hughes/.global_ignore
+	excludesFile = /Users/sophiehughes/.global_ignore
 [pull]
 	rebase = false
 [init]
