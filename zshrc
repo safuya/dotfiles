@@ -9,7 +9,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export ZSH="$HOME/.oh-my-zsh"
 export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH="$HOME/src"
-export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/boxed-config.yaml"
+export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/boxed-config.yaml:$HOME/.kube/boxed-platform-config.yaml"
 
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
